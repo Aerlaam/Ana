@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  evoluvote-90m:
+    build: .
+    container_name: evoluvote-90m
+    environment:
+      - TASK=vote90
+      - TZ=Europe/Paris
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 90m
+        
+  evoluvote-24h:
+    build: .
+    container_name: evoluvote-24h
+    environment:
+      - TASK=vote24
+      - TZ=Europe/Paris
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 24h
+
+# Note: Docker Compose n'est pas idéal pour des timers précis.
+# L'utilisation de systemd est recommandée pour une précision optimale.

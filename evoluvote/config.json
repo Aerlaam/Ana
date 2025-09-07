@@ -1,0 +1,71 @@
+{
+  "baseUrl": "https://evolucraft.fr/vote",
+  "sites": {
+    "vote90": {
+      "task": "vote90",
+      "indexOnEvoluPage": 0,
+      "expectSuccess": ["Vote enregistré", "Merci", "Déjà voté", "successfully", "success", "thank"]
+    },
+    "vote24": {
+      "task": "vote24",
+      "indexOnEvoluPage": 1,
+      "expectSuccess": ["Vote enregistré", "Merci", "Déjà voté", "successfully", "success", "thank", "registered"]
+    }
+  },
+  "selectors": {
+    "playerInputOnEvolu": [
+      "input[name='player']",
+      "input#player",
+      "input[name='pseudo']",
+      "input#pseudo",
+      "input[name='username']",
+      "input[name='nickname']"
+    ],
+    "voteButtonsOnEvolu": [
+      "a[href*='vote']",
+      ".vote-button",
+      ".btn-vote",
+      "a:has-text('Voter')",
+      "button:has-text('Voter')",
+      "a.btn",
+      ".vote-link"
+    ],
+    "externalPlayerInputs": [
+      "input[name='player']",
+      "input#player",
+      "input[name='pseudo']",
+      "input#pseudo",
+      "input[name='nickname']",
+      "input#nickname",
+      "input[name='username']",
+      "input[name='mc_username']",
+      "input[type='text']:visible"
+    ],
+    "externalSubmitButtons": [
+      "button[type='submit']",
+      "input[type='submit']",
+      "button:has-text('Voter')",
+      "button:has-text('Vote')",
+      "a:has-text('Voter')",
+      ".btn-primary",
+      ".btn-success",
+      ".btn",
+      ".button",
+      "#vote-button"
+    ]
+  },
+  "timeouts": {
+    "navigationMs": 45000,
+    "idleAfterSubmitMs": 1500,
+    "retryDelayMs": 5000,
+    "maxRetries": 3
+  },
+  "captcha": {
+    "detectRegex": "(captcha|je ne suis pas un robot|i am not a robot|recaptcha|hcaptcha|cloudflare)",
+    "manualWaitMinutes": 15
+  },
+  "logging": {
+    "level": "info",
+    "dateFormat": "DD/MM/YYYY HH:mm:ss"
+  }
+}

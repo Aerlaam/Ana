@@ -1,0 +1,20 @@
+[Unit]
+Description=EvoluVote Bot - Vote 24 heures
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/evoluvote
+ExecStart=/usr/bin/node /opt/evoluvote/src/index.js
+Environment="TASK=vote24"
+StandardOutput=journal
+StandardError=journal
+User=evoluvote
+Group=evoluvote
+
+# Redémarrage en cas d'échec
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target

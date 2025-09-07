@@ -1,0 +1,23 @@
+{
+  "name": "evoluvote-bot",
+  "version": "1.0.0",
+  "description": "Bot de vote automatisé pour EvoluCraft",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "TASK=vote90 node src/index.js",
+    "test:24h": "TASK=vote24 node src/index.js",
+    "start:90m": "TASK=vote90 node src/index.js",
+    "start:24h": "TASK=vote24 node src/index.js"
+  },
+  "keywords": ["bot", "vote", "evolucraft", "playwright"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.1",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

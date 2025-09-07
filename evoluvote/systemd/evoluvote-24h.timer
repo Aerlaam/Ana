@@ -1,0 +1,19 @@
+[Unit]
+Description=Timer pour EvoluVote Bot - Vote toutes les 24 heures
+Requires=evoluvote-24h.service
+
+[Timer]
+# Première exécution 2 minutes après le démarrage
+OnBootSec=2min
+
+# Répétition toutes les 24 heures
+OnUnitActiveSec=24h
+
+# Précision maximale (1 seconde)
+AccuracySec=1s
+
+# Persistance après redémarrage
+Persistent=true
+
+[Install]
+WantedBy=timers.target

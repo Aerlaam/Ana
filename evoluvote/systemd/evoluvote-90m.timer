@@ -1,0 +1,19 @@
+[Unit]
+Description=Timer pour EvoluVote Bot - Vote toutes les 90 minutes
+Requires=evoluvote-90m.service
+
+[Timer]
+# Première exécution 1 minute après le démarrage
+OnBootSec=1min
+
+# Répétition toutes les 90 minutes
+OnUnitActiveSec=90min
+
+# Précision maximale (1 seconde)
+AccuracySec=1s
+
+# Persistance après redémarrage
+Persistent=true
+
+[Install]
+WantedBy=timers.target
